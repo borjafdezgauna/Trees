@@ -2,75 +2,78 @@
 using System;
 using System.Threading;
 
-//TODO #1: Copy your GenericList<T> class from last project and add the file GenericList.cs to this project and delete the class below.
-public class GenericList<T> { public int Count() { return 0; } public T Get(int index) { return default(T); } }
-
-public class GenericTreeNode<T>
+namespace GenericTree
 {
-    private T Value;
-    
-    private GenericList<GenericTreeNode<T>> Children;
+    //TODO #1: Copy your GenericList<T> class from last project and add the file GenericList.cs to this project and delete the class below.
+    public class GenericList<T> { public int Count() { return 0; } public T Get(int index) { return default(T); } }
 
-    public GenericTreeNode(T value)
+    public class GenericTreeNode<T>
     {
-        //TODO #2: Initialize member variables/attributes
-    }
+        private T Value;
 
-    public string AsString(int depth)
-    {
-        string output = null;
-        string leftSpace = null;
-        for (int i = 0; i < depth; i++) leftSpace += " ";
-        if (leftSpace != null) leftSpace += "->";
+        private GenericList<GenericTreeNode<T>> Children;
 
-        output += $"{leftSpace}[{Value}]\n";
-
-        for (int childIndex = 0; childIndex < Children.Count(); childIndex++)
+        public GenericTreeNode(T value)
         {
-            GenericTreeNode<T> child = Children.Get(childIndex);
-            output += child.AsString(depth + 1);
+            //TODO #2: Initialize member variables/attributes
         }
-        return output;
-    }
 
-    public GenericTreeNode<T> Add(T value)
-    {
-        //TODO #3: Add a new instance of class GenericTreeNode<T> with Value=value. Return the instance we just created
-        
-        return null;
-    }
+        public string AsString(int depth)
+        {
+            string output = null;
+            string leftSpace = null;
+            for (int i = 0; i < depth; i++) leftSpace += " ";
+            if (leftSpace != null) leftSpace += "->";
 
-    public int Count()
-    {
-        //TODO #4: Return the total number of elements in this tree
+            output += $"{leftSpace}[{Value}]\n";
 
-        return 0;
-    }
+            for (int childIndex = 0; childIndex < Children.Count(); childIndex++)
+            {
+                GenericTreeNode<T> child = Children.Get(childIndex);
+                output += child.AsString(depth + 1);
+            }
+            return output;
+        }
 
-    public int Depth()
-    {
-        //TODO #5: Return the depth of this tree
+        public GenericTreeNode<T> Add(T value)
+        {
+            //TODO #3: Add a new instance of class GenericTreeNode<T> with Value=value. Return the instance we just created
 
-        return 0;
-    }
-
-    
-
-    public void Remove(T value)
-    {
-        //TODO #6: Remove the child node that has Value=value. We only check children nodes for this value. If it's not found, do nothing
-        
-    }
-}
-
-public class GenericTree<T>
-{
-    public GenericTreeNode<T> RootNode = null;
-
-    public string AsString()
-    {
-        if (RootNode == null)
             return null;
-        else return RootNode.AsString(0);
+        }
+
+        public int Count()
+        {
+            //TODO #4: Return the total number of elements in this tree
+
+            return 0;
+        }
+
+        public int Depth()
+        {
+            //TODO #5: Return the depth of this tree
+
+            return 0;
+        }
+
+
+
+        public void Remove(T value)
+        {
+            //TODO #6: Remove the child node that has Value=value. We only check children nodes for this value. If it's not found, do nothing
+
+        }
+    }
+
+    public class GenericTree<T>
+    {
+        public GenericTreeNode<T> RootNode = null;
+
+        public string AsString()
+        {
+            if (RootNode == null)
+                return null;
+            else return RootNode.AsString(0);
+        }
     }
 }
