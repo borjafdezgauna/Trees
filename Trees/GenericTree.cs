@@ -1,11 +1,14 @@
 
 using System;
+using System.Threading;
 
-//TODO #1: Copy your GenericList<T> class from last project and add the file GenericList.cs to this project.
+//TODO #1: Copy your GenericList<T> class from last project and add the file GenericList.cs to this project and delete the class below.
+public class GenericList<T> { public int Count() { return 0; } public T Get(int index) { return default(T); } }
 
 public class GenericTreeNode<T>
 {
     private T Value;
+    
     private GenericList<GenericTreeNode<T>> Children;
 
     public GenericTreeNode(T value)

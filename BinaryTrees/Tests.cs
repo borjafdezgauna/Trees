@@ -1,8 +1,12 @@
-using Common;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
+public class SpeedMeasure
+{
+    public bool Success { get; set; }
+    public double Time { get; set; }
+}
 public static class Tests
 {
     public static bool TestBinaryTree()
@@ -29,7 +33,7 @@ public static class Tests
         string asString = tree.AsString();
         for (int i = 1; i < 16; i++)
         {
-            if (!asString.Contains($"[{i}-"))
+            if (asString == null || !asString.Contains($"[{i}-"))
             {
                 Console.WriteLine($"Error. Value {i} wasn't added to the tree");
                 Console.WriteLine(asString);

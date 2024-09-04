@@ -21,7 +21,8 @@ public class GenericBinaryTreeNode<TKey, TValue> where TKey : IComparable<TKey>
         for (int i = 0; i < depth; i++) leftSpace += " ";
         if (leftSpace != null) leftSpace += "->";
 
-        output += $"{leftSpace}[{Key.ToString()}-{Value.ToString()}]\n";
+        if (Value != null)
+            output += $"{leftSpace}[{Key.ToString()}-{Value.ToString()}]\n";
 
         if (LeftChild != null)
             output += $"{LeftChild?.AsString(depth + 1)}";
