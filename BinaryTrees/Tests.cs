@@ -32,7 +32,7 @@ namespace GenericBinaryTree
             tree.Add(12, "hamabi");
             tree.Add(14, "hamalau");
 
-            string asString = tree.AsString();
+            string asString = tree.ToString();
             for (int i = 1; i < 16; i++)
             {
                 if (asString == null || !asString.Contains($"[{i}-"))
@@ -44,7 +44,7 @@ namespace GenericBinaryTree
             }
             Console.WriteLine("Ok");
 
-            Console.WriteLine($"Initial tree:\n{tree.AsString()}");
+            Console.WriteLine($"Initial tree:\n{tree.ToString()}");
 
             Console.Write("Testing Count()...");
             int count = tree.Count();
@@ -187,7 +187,7 @@ namespace GenericBinaryTree
             Console.WriteLine("Ok");
 
             Console.WriteLine("Tree after balancing:");
-            Console.WriteLine(tree.AsString());
+            Console.WriteLine(tree.ToString());
 
 
             return true;

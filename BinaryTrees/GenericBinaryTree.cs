@@ -15,7 +15,7 @@ namespace GenericBinaryTree
             //TODO #1: Initialize member variables/attributes
         }
 
-        public string AsString(int depth)
+        public override string ToString(int depth)
         {
             string output = null;
 
@@ -27,10 +27,10 @@ namespace GenericBinaryTree
                 output += $"{leftSpace}[{Key.ToString()}-{Value.ToString()}]\n";
 
             if (LeftChild != null)
-                output += $"{LeftChild?.AsString(depth + 1)}";
+                output += $"{LeftChild?.ToString(depth + 1)}";
 
             if (RightChild != null)
-                output += $"{RightChild?.AsString(depth + 1)}";
+                output += $"{RightChild?.ToString(depth + 1)}";
 
             return output;
         }
@@ -109,11 +109,11 @@ namespace GenericBinaryTree
     {
         public GenericBinaryTreeNode<TKey, TValue> RootNode;
 
-        public string AsString()
+        public override string ToString()
         {
             if (RootNode == null)
                 return null;
-            else return RootNode.AsString(0);
+            else return RootNode.ToString(0);
         }
 
         public int Count()

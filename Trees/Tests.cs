@@ -29,7 +29,7 @@ namespace GenericTree
             child22.Add(14);
             child22.Add(15);
 
-            string asString = tree.AsString();
+            string asString = tree.ToString();
             for (int i = 1; i < 16; i++)
             {
                 if (!asString.Contains($"[{i}]"))

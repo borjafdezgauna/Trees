@@ -18,7 +18,7 @@ namespace GenericTree
             //TODO #2: Initialize member variables/attributes
         }
 
-        public string AsString(int depth)
+        public string ToString(int depth)
         {
             string output = null;
             string leftSpace = null;
@@ -30,7 +30,7 @@ namespace GenericTree
             for (int childIndex = 0; childIndex < Children.Count(); childIndex++)
             {
                 GenericTreeNode<T> child = Children.Get(childIndex);
-                output += child.AsString(depth + 1);
+                output += child.ToString(depth + 1);
             }
             return output;
         }
@@ -69,11 +69,11 @@ namespace GenericTree
     {
         public GenericTreeNode<T> RootNode = null;
 
-        public string AsString()
+        public override string ToString()
         {
             if (RootNode == null)
                 return null;
-            else return RootNode.AsString(0);
+            else return RootNode.ToString(0);
         }
     }
 }
