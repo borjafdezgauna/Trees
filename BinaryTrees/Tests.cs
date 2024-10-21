@@ -55,11 +55,11 @@ namespace GenericBinaryTree
             }
             Console.WriteLine("Ok");
 
-            Console.Write("Testing Depth()...");
-            int depth = tree.Depth();
-            if (depth != 6)
+            Console.Write("Testing Height()...");
+            int height = tree.Height();
+            if (height != 6)
             {
-                Console.WriteLine($"Error. Depth() returned {depth} instead of 6");
+                Console.WriteLine($"Error. Height() returned {height} instead of 6");
                 return false;
             }
             Console.WriteLine("Ok");
@@ -174,14 +174,14 @@ namespace GenericBinaryTree
             Console.WriteLine();
 
             Console.WriteLine("Testing Balance()...");
-            int oldDepth = tree.Depth();
+            int oldHeight = tree.Height();
             int oldCount = tree.Count();
             tree.Balance();
-            int newDepth = tree.Depth();
+            int newHeight = tree.Height();
             newCount = tree.Count();
-            if (oldDepth <= newDepth || oldCount != newCount)
+            if (oldHeight <= newHeight || oldCount != newCount)
             {
-                Console.WriteLine($"Balance() didn't work. Depth before is {oldDepth} and after is {newDepth}. Count is {newCount} instead of {oldCount}");
+                Console.WriteLine($"Balance() didn't work. Height before is {oldHeight} and after is {newHeight}. Count is {newCount} instead of {oldCount}");
                 return false;
             }
             Console.WriteLine("Ok");

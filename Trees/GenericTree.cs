@@ -49,9 +49,9 @@ namespace GenericTree
             return 0;
         }
 
-        public int Depth()
+        public int Height()
         {
-            //TODO #5: Return the depth of this tree
+            //TODO #5: Return the height of this tree
 
             return 0;
         }

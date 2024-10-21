@@ -15,7 +15,7 @@ namespace GenericBinaryTree
             //TODO #1: Initialize member variables/attributes
         }
 
-        public override string ToString(int depth)
+        public string ToString(int depth)
         {
             string output = null;
 
@@ -53,9 +53,9 @@ namespace GenericBinaryTree
             return 0;
         }
 
-        public int Depth()
+        public int Height()
         {
-            //TODO #4: Return the maximum depth of this tree
+            //TODO #4: Return the height of this tree
 
             return 0;
         }
@@ -123,11 +123,11 @@ namespace GenericBinaryTree
             return RootNode.Count();
         }
 
-        public int Depth()
+        public int Height()
         {
             if (RootNode == null)
                 return 0;
-            return RootNode.Depth();
+            return RootNode.Height();
         }
 
         public TValue Get(TKey key)

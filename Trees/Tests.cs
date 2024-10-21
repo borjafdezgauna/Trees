@@ -51,11 +51,11 @@ namespace GenericTree
 
             Console.WriteLine("Ok");
 
-            Console.Write("Testing Depth()...");
-            int depth = tree.RootNode.Depth();
-            if (depth != 4)
+            Console.Write("Testing Height()...");
+            int height = tree.RootNode.Height();
+            if (height != 4)
             {
-                Console.WriteLine($"Error. Depth() returned {depth} instead of 4");
+                Console.WriteLine($"Error. Height() returned {height} instead of 4");
                 return false;
             }
 
