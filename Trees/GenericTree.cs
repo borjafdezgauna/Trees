@@ -60,8 +60,19 @@ namespace GenericTree
 
         public void Remove(T value)
         {
-            //TODO #6: Remove the child node that has Value=value. We only check children nodes for this value. If it's not found, do nothing
+            //TODO #6: Remove the child node that has Value=value. Apply recursively
 
+        }
+
+        public GenericTreeNode<T> Find(T value)
+        {
+            //TODO #7: Return the node that contains this value (it might be this node or a child). Apply recursively
+            return null;
+        }
+
+        public void Remove(GenericTreeNode<T> node)
+        {
+            //TODO #8: Same as #6, but this method is given the specific node to remove, not the value
         }
     }
 

@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 
+using System;
 namespace GenericTree
 {
     public static class Tests
@@ -74,6 +72,43 @@ namespace GenericTree
             if (count != 9)
             {
                 Console.WriteLine($"Error. Count() returned {count} instead of 9 after Remove(3)");
+                return false;
+            }
+
+            GenericTreeNode<int> found = tree.RootNode.Find(12);
+            if (found == null)
+            {
+                Console.WriteLine($"Error. Find(12) returned null");
+                return false;
+            }
+            found = tree.RootNode.Find(9);
+            if (found == null)
+            {
+                Console.WriteLine($"Error. Find(9) returned null");
+                return false;
+            }
+            found = tree.RootNode.Find(1);
+            if (found == null)
+            {
+                Console.WriteLine($"Error. Find(1) returned null");
+                return false;
+            }
+
+            found = tree.RootNode.Find(12);
+            tree.RootNode.Remove(found);
+            found = tree.RootNode.Find(12);
+            if (found != null)
+            {
+                Console.WriteLine($"Error. Remove(GenericTreeNode<T>) failed to delete item with value 12");
+                return false;
+            }
+
+            found = tree.RootNode.Find(9);
+            tree.RootNode.Remove(found);
+            found = tree.RootNode.Find(9);
+            if (found != null)
+            {
+                Console.WriteLine($"Error. Remove(GenericTreeNode<T>) failed to delete item with value 9");
                 return false;
             }
 
