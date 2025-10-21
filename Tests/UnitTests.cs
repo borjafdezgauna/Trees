@@ -1,17 +1,22 @@
-namespace Tests
+namespace UnitTests;
+using System;
+public class Tests
 {
-    public class UnitTests
+    [Fact]
+    public void GenericTrees()
     {
-        [Fact]
-        public void GenericTrees()
-        {
-            Assert.True(GenericTree.Tests.TestGenericTree());
-        }
+        TimeoutHandler.Test(GenericTree.Tests.TestGenericTree, 1, Console.WriteLine, Assert.Fail);
+    }
 
-        [Fact]
-        public void BinaryTrees()
-        {
-            Assert.True(GenericBinaryTree.Tests.TestBinaryTree());
-        }
+    [Fact]
+    public void BinaryTrees()
+    {
+        TimeoutHandler.Test(GenericBinaryTree.Tests.TestBinaryTree, 1, Console.WriteLine, Assert.Fail);
+    }
+
+    [Fact]
+    public void BinaryTreesPerformance()
+    {
+        TimeoutHandler.Test(GenericBinaryTree.Tests.MeasureBinaryTreeSpeed, 2, Console.WriteLine, Assert.Fail);
     }
 }

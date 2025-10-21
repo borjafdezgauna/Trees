@@ -11,11 +11,11 @@ namespace GenericBinaryTree
     }
     public static class Tests
     {
-        public static bool TestBinaryTree()
+        public static bool TestBinaryTree(Action<string> onProgress, Action<string> onError)
         {
-            GenericBinaryTree<int, string> tree = new GenericBinaryTree<int, string>();
+            BinaryTree<int, string> tree = new BinaryTree<int, string>();
 
-            Console.Write("Testing Add()...");
+            onProgress("Testing Add()...");
             tree.Add(3, "hiru");
             tree.Add(7, "zazpi");
             tree.Add(11, "hamaika");
@@ -37,143 +37,142 @@ namespace GenericBinaryTree
             {
                 if (asString == null || !asString.Contains($"[{i}-"))
                 {
-                    Console.WriteLine($"Error. Value {i} wasn't added to the tree");
-                    Console.WriteLine(asString);
+                    onError($"Error. Value {i} wasn't added to the tree:");
                     return false;
                 }
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.WriteLine($"Initial tree:\n{tree.ToString()}");
+            onProgress($"Initial tree:\n{tree.ToString()}");
 
-            Console.Write("Testing Count()...");
+            onProgress("Testing Count()...");
             int count = tree.Count();
             if (count != 15)
             {
-                Console.WriteLine($"Error. Count() returned {count} instead of 15");
+                onError($"Error. Count() returned {count} instead of 15");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.Write("Testing Height()...");
+            onProgress("Testing Height()...");
             int height = tree.Height();
             if (height != 6)
             {
-                Console.WriteLine($"Error. Height() returned {height} instead of 6");
+                onError($"Error. Height() returned {height} instead of 6");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.Write("Testing Get()...");
+            onProgress("Testing Get()...");
             string value = tree.Get(12);
             if (value != "hamabi")
             {
-                Console.WriteLine($"Error. Get(12) returned {value} instead of \"hamabi\"");
+                onError($"Error. Get(12) returned {value} instead of \"hamabi\"");
                 return false;
             }
             value = tree.Get(14);
             if (value != "hamalau")
             {
-                Console.WriteLine($"Error. Get(14) returned {value} instead of \"hamalau\"");
+                onError($"Error. Get(14) returned {value} instead of \"hamalau\"");
                 return false;
             }
             value = tree.Get(4);
             if (value != "lau")
             {
-                Console.WriteLine($"Error. Get(4) returned {value} instead of \"lau\"");
+                onError($"Error. Get(4) returned {value} instead of \"lau\"");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.Write("Testing Add() with duplicated key...");
+            onProgress("Testing Add() with duplicated key...");
             tree.Add(6, "six");
             count = tree.Count();
             if (count != 15 || tree.Get(6) != "six")
             {
-                Console.WriteLine($"Error. Get(6) after Add(6,\"six\") returned \"{tree.Get(6)}\" instead of \"six\"");
+                onError($"Error. Get(6) after Add(6,\"six\") returned \"{tree.Get(6)}\" instead of \"six\"");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
 
-            Console.Write("Testing Remove() with leaf nodes...");
+            onProgress("Testing Remove() with leaf nodes...");
             tree.Remove(6);
             int newCount = tree.Count();
             if (count != newCount + 1)
             {
-                Console.WriteLine($"Error. Remove failed to remove leaf node");
+                onError($"Error. Remove failed to remove leaf node");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.Write("Testing Remove() with non-existing node...");
+            onProgress("Testing Remove() with non-existing node...");
             tree.Remove(6);
             newCount = tree.Count();
             int expectedNodeCount = count - 1;
             if (expectedNodeCount != newCount)
             {
-                Console.WriteLine($"Error. {newCount} instead of {expectedNodeCount} nodes");
+                onError($"Error. {newCount} instead of {expectedNodeCount} nodes");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.Write("Testing Remove() with interior node with only left child...");
+            onProgress("Testing Remove() with interior node with only left child...");
             tree.Remove(15);
             newCount = tree.Count();
             expectedNodeCount = count - 2;
             if (expectedNodeCount != newCount)
             {
-                Console.WriteLine($"Error. {newCount} instead of {expectedNodeCount} nodes");
+                onError($"Error. {newCount} instead of {expectedNodeCount} nodes");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.Write("Testing Remove() with interior node with only right child...");
+            onProgress("Testing Remove() with interior node with only right child...");
             tree.Remove(8);
             newCount = tree.Count();
             expectedNodeCount = count - 3;
             if (expectedNodeCount != newCount)
             {
-                Console.WriteLine($"Error. {newCount} instead of {expectedNodeCount} nodes");
+                onError($"Error. {newCount} instead of {expectedNodeCount} nodes");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.Write("Testing Remove() with interior node with both left and right children...");
+            onProgress("Testing Remove() with interior node with both left and right children...");
             tree.Remove(7);
             newCount = tree.Count();
             expectedNodeCount = count - 4;
             if (expectedNodeCount != newCount)
             {
-                Console.WriteLine($"Error. {newCount} instead of {expectedNodeCount} nodes");
+                onError($"Error. {newCount} instead of {expectedNodeCount} nodes");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.Write("Testing Remove() with root node...");
+            onProgress("Testing Remove() with root node...");
             tree.Remove(3);
             newCount = tree.Count();
             expectedNodeCount = count - 5;
             if (expectedNodeCount != newCount)
             {
-                Console.WriteLine($"Error. {newCount} instead of {expectedNodeCount} nodes");
+                onError($"Error. {newCount} instead of {expectedNodeCount} nodes");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.WriteLine("Testing Keys()...");
+            onProgress("Testing Keys()...");
             int[] keys = tree.Keys();
             foreach (int key in keys)
-                Console.WriteLine(key);
-            Console.WriteLine();
+                onProgress(key.ToString());
+            onProgress(null);
 
-            Console.WriteLine("Testing Values()...");
+            onProgress("Testing Values()...");
             string[] values = tree.Values();
             foreach (string val in values)
-                Console.WriteLine(val);
-            Console.WriteLine();
+                onProgress(val);
+            onProgress(null);
 
-            Console.WriteLine("Testing Balance()...");
+            onProgress("Testing Balance()...");
             int oldHeight = tree.Height();
             int oldCount = tree.Count();
             tree.Balance();
@@ -181,29 +180,29 @@ namespace GenericBinaryTree
             newCount = tree.Count();
             if (oldHeight <= newHeight || oldCount != newCount)
             {
-                Console.WriteLine($"Balance() didn't work. Height before is {oldHeight} and after is {newHeight}. Count is {newCount} instead of {oldCount}");
+                onError($"Balance() didn't work. Height before is {oldHeight} and after is {newHeight}. Count is {newCount} instead of {oldCount}");
                 return false;
             }
-            Console.WriteLine("Ok");
+            onProgress("Ok");
 
-            Console.WriteLine("Tree after balancing:");
-            Console.WriteLine(tree.ToString());
+            onProgress("Tree after balancing:");
+            onProgress(tree.ToString());
 
 
             return true;
         }
 
-        public static SpeedMeasure MeasureSpeed()
+
+
+        public static bool MeasureBinaryTreeSpeed(Action<string> onProgress, Action<string> onError)
         {
-            Console.WriteLine("Measuring speed");
+            onProgress("Measuring speed");
 
             int numSamples = 1000000;
             Random randomGenerator = new Random();
             Dictionary<int, int> solutions = new Dictionary<int, int>();
-            GenericBinaryTree<int, int> tree = new GenericBinaryTree<int, int>();
+            BinaryTree<int, int> tree = new BinaryTree<int, int>();
 
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             for (int i = 0; i < numSamples; i++)
             {
                 int number = randomGenerator.Next(0, 10000);
@@ -214,12 +213,12 @@ namespace GenericBinaryTree
             foreach (int number in solutions.Keys)
             {
                 if (tree.Get(number) != solutions[number])
-                    return new SpeedMeasure() { Success = false };
+                    return false;
 
                 tree.Remove(number);
             }
 
-            return new SpeedMeasure() { Success = true, Time = stopwatch.Elapsed.TotalSeconds };
+            return true;
         }
     }
 }
