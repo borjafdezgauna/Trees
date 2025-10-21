@@ -28,6 +28,12 @@ namespace GenericTree
             child22.Add(15);
 
             string asString = tree.ToString();
+            if (asString == null)
+            {
+                onError("Error. ToString() returned null. Did you forget to uncomment ToString()?");
+                return false;
+            }
+
             for (int i = 1; i < 16; i++)
             {
                 if (!asString.Contains($"[{i}]"))

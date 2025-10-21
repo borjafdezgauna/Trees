@@ -33,6 +33,12 @@ namespace GenericBinaryTree
             tree.Add(14, "hamalau");
 
             string asString = tree.ToString();
+            if (asString == null)
+            {
+                onError("Error. ToString() returned null. Did you forget to uncomment ToString()?");
+                return false;
+            }
+
             for (int i = 1; i < 16; i++)
             {
                 if (asString == null || !asString.Contains($"[{i}-"))
