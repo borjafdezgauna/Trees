@@ -13,6 +13,11 @@ namespace GenericTree
             onProgress("Testing Add()...");
 
             TreeNode<int> child1 = tree.RootNode.Add(2);
+            if (child1 == null)
+            {
+                onError("Error. Add() returned null. It should return the node that was added to the tree");
+                return false;
+            }
             TreeNode<int> child2 = tree.RootNode.Add(3);
             TreeNode<int> child11 = child1.Add(4);
             TreeNode<int> child12 = child1.Add(5);
