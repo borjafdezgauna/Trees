@@ -1,6 +1,6 @@
 
 using System;
-using GenericTree;
+using Trees;
 
 class MainClass
 {

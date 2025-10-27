@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Check generic trees",
+            "name": "Check trees",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/Trees/GenericTrees.csproj"
+            "projectPath": "${workspaceFolder}/Trees/Trees.csproj"
         },
         {
             "name": "Check binary trees",

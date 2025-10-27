@@ -1,6 +1,6 @@
 
 using System;
-namespace GenericTree
+namespace Trees
 {
     public static class Tests
     {

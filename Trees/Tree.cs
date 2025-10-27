@@ -1,4 +1,4 @@
-namespace GenericTree
+namespace Trees
 {
 
     public class Tree<T>

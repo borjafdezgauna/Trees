@@ -1,6 +1,6 @@
 
 using System;
-namespace GenericBinaryTree
+namespace BinaryTrees
 {
 
     public class BinaryTree<TKey, TValue> where TKey : IComparable<TKey>

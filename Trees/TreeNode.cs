@@ -2,7 +2,7 @@
 using System;
 using Lists;
 
-namespace GenericTree
+namespace Trees
 {
     public class TreeNode<T>
     {

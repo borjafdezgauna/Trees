@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericTrees", "Trees\GenericTrees.csproj", "{46C662D9-07CD-4C92-81C1-0C7FFEDD8B5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trees", "Trees\Trees.csproj", "{46C662D9-07CD-4C92-81C1-0C7FFEDD8B5F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryTrees", "BinaryTrees\BinaryTrees.csproj", "{AB173CB3-866D-48B4-8B28-CDF9FFDA6871}"
 EndProject
