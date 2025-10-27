@@ -5,7 +5,7 @@ public class Tests
     [Fact]
     public void GenericTrees()
     {
-        TimeoutHandler.Test(GenericTree.Tests.TestGenericTree, 1, Console.WriteLine, Assert.Fail);
+        TimeoutHandler.Test(Trees.Tests.TestGenericTree, 1, Console.WriteLine, Assert.Fail);
     }
 
     [Fact]
