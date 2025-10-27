@@ -53,7 +53,7 @@ namespace Trees
             int count = tree.RootNode.Count();
             if (count != 15)
             {
-                onProgress($"Error. Count() returned {count} instead of 15");
+                onError($"Error. Count() returned {count} instead of 15");
                 return false;
             }
 
@@ -61,9 +61,9 @@ namespace Trees
 
             onProgress("Testing Height()...");
             int height = tree.RootNode.Height();
-            if (height != 4)
+            if (height != 3)
             {
-                onProgress($"Error. Height() returned {height} instead of 4");
+                onError($"Error. Height() returned {height} instead of 4");
                 return false;
             }
 

@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BinaryTrees\BinaryTrees.csproj" />
-    <ProjectReference Include="..\Trees\GenericTrees.csproj" />
+    <ProjectReference Include="..\Trees\Trees.csproj" />
   </ItemGroup>
 
   <ItemGroup>
