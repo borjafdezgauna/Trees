@@ -80,7 +80,7 @@ namespace Trees
 
         public void Remove(TreeNode<T> node)
         {
-            //TODO #9: Same as #6, but this method is given the specific node to remove, not the value
+            //TODO #9: Same as #7, but this method is given the specific node to remove, not the value
             
         }
     }

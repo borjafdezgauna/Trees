@@ -24,7 +24,7 @@ namespace BinaryTrees
         public int Height()
         {
             if (RootNode == null)
-                return 0;
+                return -1;
             return RootNode.Height();
         }
 

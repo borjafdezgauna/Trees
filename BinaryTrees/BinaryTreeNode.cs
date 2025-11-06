@@ -57,6 +57,8 @@ namespace BinaryTrees
         public int Height()
         {
             //TODO #4: Return the height of this tree
+            //          -If the node has no children, the height will be zero
+            //          -If the node has children, the height will be the maximum height of a child plus 1
             
             return 0;
             
@@ -68,7 +70,7 @@ namespace BinaryTrees
             //          -If the current node (this) has a higher key that the new node (use CompareTo()), the key we are searching for should be on this node's left side.
             //              a) If the left child is null, return null. We haven't found it
             //              b) Else, we should ask the LeftChild to find the node recursively. It must be below LeftChild
-            //          -If the current node has a lower key that the new node (use CompareTo()), the key should be on this node's right side.
+            //          -If the current node has a lower key that the new node (use CompareTo()), the key should be on this node's right side. Do the same as before.
             //          -If the current node and the new node have the same key, just return this node's value. We found it
             
             return default;
