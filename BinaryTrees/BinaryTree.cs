@@ -1,6 +1,6 @@
 
 using System;
-namespace BinaryTrees
+namespace EDA
 {
 
     public class BinaryTree<TKey, TValue> where TKey : IComparable<TKey>

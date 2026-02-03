@@ -1,4 +1,4 @@
-namespace Trees
+namespace EDA
 {
 
     public class Tree<T>

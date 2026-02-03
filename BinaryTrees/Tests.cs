@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace BinaryTrees
+namespace EDA
 {
     public class SpeedMeasure
     {

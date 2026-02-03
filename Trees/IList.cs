@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace Lists
+namespace EDA
 {
     public interface IList<T> : IEnumerable
     {

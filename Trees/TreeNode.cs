@@ -2,7 +2,7 @@
 using System;
 using Lists;
 
-namespace Trees
+namespace EDA
 {
     public class TreeNode<T>
     {

@@ -1,6 +1,6 @@
 
 using System;
-namespace Trees
+namespace EDA
 {
     public static class Tests
     {
