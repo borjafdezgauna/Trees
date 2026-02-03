@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections;
 
 namespace EDA
 {
-    public interface IList<T> : IEnumerable
+    public interface IList<T> : System.Collections.IEnumerable
     {
         int Count();
 

@@ -2,7 +2,7 @@
 using System;
 namespace EDA
 {
-    public static class Tests
+    public static class TreeTests
     {
         public static bool TestGenericTree(Action<string> onProgress, Action<string> onError)
         {

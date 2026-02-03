@@ -9,7 +9,7 @@ namespace EDA
         public bool Success { get; set; }
         public double Time { get; set; }
     }
-    public static class Tests
+    public static class BinaryTreeTests
     {
         public static bool TestBinaryTree(Action<string> onProgress, Action<string> onError)
         {
